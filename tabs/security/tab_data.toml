@@ -1,0 +1,52 @@
+name = "Security"
+
+[[data]]
+name = "UFW Firewall Baseline"
+description = "Install ufw, deny incoming and allow outgoing by default, optionally keep SSH open."
+script = "ufw-baseline.sh"
+task_list = "P MP SS"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.preconditions]]
+matches = false
+data = "command_exists"
+values = ["firewall-cmd"]
+
+[[data]]
+name = "Lynis Security Audit"
+description = "Install Lynis and run a full system security audit."
+script = "lynis-audit.sh"
+task_list = "P MP"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "Firewall Baseline"
+description = "Enable Windows Firewall on all profiles and block inbound by default."
+script = "firewall-baseline.ps1"
+task_list = "A FW"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "Defender Quick Scan"
+description = "Update Microsoft Defender signatures and run a quick scan."
+script = "defender-scan.ps1"
+task_list = "A FW"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]

@@ -1,0 +1,90 @@
+name = "Utils"
+
+[[data]]
+name = "System Info"
+description = "OS, kernel, CPU, memory and disk summary."
+command = "uname -a; echo; lscpu 2>/dev/null | head -n 15; echo; free -h; echo; df -h /"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "System Info"
+description = "OS, CPU, memory and disk summary."
+command = "Get-ComputerInfo | Select-Object OsName,OsVersion,OsArchitecture,CsProcessors,CsTotalPhysicalMemory | Format-List; Get-PSDrive -PSProvider FileSystem | Format-Table"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "Listening Ports"
+description = "Show listening TCP/UDP sockets."
+command = "ss -tulpn"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.preconditions]]
+matches = true
+data = "command_exists"
+values = ["ss"]
+
+[[data]]
+name = "Listening Ports"
+description = "Show listening TCP ports with owning process."
+command = "Get-NetTCPConnection -State Listen | Sort-Object LocalPort | ForEach-Object { [pscustomobject]@{Port=$_.LocalPort; Address=$_.LocalAddress; PID=$_.OwningProcess; Process=(Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue).ProcessName} } | Format-Table"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "Disk Usage"
+description = "Largest folders in your home directory."
+command = "du -h --max-depth=1 \"$HOME\" 2>/dev/null | sort -hr | head -n 15"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "Flush DNS Cache"
+description = "Clear the Windows DNS resolver cache."
+command = "ipconfig /flushdns"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "SSH Server"
+description = "Install and enable the OpenSSH server."
+script = "ssh-setup.sh"
+task_list = "I MP SS"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "SSH Server"
+description = "Install and start the OpenSSH server feature (port 22)."
+script = "openssh-server.ps1"
+task_list = "A WF SS"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]

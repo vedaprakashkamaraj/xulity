@@ -1,0 +1,1923 @@
+name = "Applications Setup"
+
+[[data]]
+name = "Developer Tools"
+
+[[data.entries]]
+name = "Git"
+description = "Distributed version control system."
+script = "app-install.sh"
+args = ["git"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Git"
+description = "Distributed version control system."
+script = "app-install.ps1"
+args = ["Git.Git", "git", "git"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Neovim"
+description = "Hyperextensible Vim-based text editor."
+script = "app-install.sh"
+args = ["neovim"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Neovim"
+description = "Hyperextensible Vim-based text editor."
+script = "app-install.ps1"
+args = ["Neovim.Neovim", "neovim", "neovim"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Python 3"
+description = "Python interpreter and standard library."
+script = "app-install.sh"
+args = ["python3"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Python 3"
+description = "Python interpreter and standard library."
+script = "app-install.ps1"
+args = ["Python.Python.3.12", "python", "python"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Node.js"
+description = "JavaScript runtime (LTS on Windows)."
+script = "app-install.sh"
+args = ["nodejs"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Node.js"
+description = "JavaScript runtime (LTS on Windows)."
+script = "app-install.ps1"
+args = ["OpenJS.NodeJS.LTS", "nodejs-lts", "nodejs-lts"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Java (JDK)"
+description = "Java Development Kit (OpenJDK 21 / Eclipse Temurin 21 on Windows)."
+script = "app-install.sh"
+args = ["jdk"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Java (JDK)"
+description = "Java Development Kit (OpenJDK 21 / Eclipse Temurin 21 on Windows)."
+script = "app-install.ps1"
+args = ["EclipseAdoptium.Temurin.21.JDK", "temurin21"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Visual Studio Code"
+description = "Microsoft's code editor."
+script = "app-install.ps1"
+args = ["Microsoft.VisualStudioCode", "vscode", "vscode"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Visual Studio Code"
+description = "Microsoft's code editor. Linux: Flatpak from Flathub (works on any distro)."
+script = "flatpak-install.sh"
+args = ["com.visualstudio.code"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Zed"
+description = "Fast, collaborative code editor written in Rust. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["ZedIndustries.Zed"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Zed"
+description = "Fast, collaborative code editor written in Rust. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["dev.zed.Zed"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "GitHub CLI"
+description = "Official GitHub command line tool (gh): pull requests, issues, auth from the terminal."
+script = "app-install.sh"
+args = ["gh"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "GitHub CLI"
+description = "Official GitHub command line tool (gh): pull requests, issues, auth from the terminal."
+script = "app-install.ps1"
+args = ["GitHub.cli", "gh", "gh"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "GitLab CLI"
+description = "Official GitLab command line tool (glab): merge requests, issues and CI from the terminal."
+script = "app-install.sh"
+args = ["glab"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "GitLab CLI"
+description = "Official GitLab command line tool (glab): merge requests, issues and CI from the terminal."
+script = "app-install.ps1"
+args = ["GLab.GLab", "glab", "glab"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "GitHub Desktop"
+description = "GitHub's graphical Git client (Windows only; no official Linux build)."
+script = "app-install.ps1"
+args = ["GitHub.GitHubDesktop", "github-desktop", "github-desktop"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Windows Terminal"
+description = "Modern tabbed terminal for Windows."
+script = "app-install.ps1"
+args = ["Microsoft.WindowsTerminal", "microsoft-windows-terminal", "windows-terminal"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Docker"
+description = "Container engine. Linux: official get.docker.com script (asks before running). Windows: Docker Desktop."
+script = "docker-setup.sh"
+task_list = "I MP SS"
+multi_select = false
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Ripgrep"
+description = "Fast recursive search tool (rg)."
+script = "app-install.sh"
+args = ["ripgrep"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "FZF"
+description = "Fuzzy finder for files, commands and history."
+script = "app-install.sh"
+args = ["fzf"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "jq"
+description = "Lightweight command-line JSON processor."
+script = "app-install.sh"
+args = ["jq"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "bat"
+description = "Cat clone with syntax highlighting and Git integration."
+script = "app-install.sh"
+args = ["bat"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "lazygit"
+description = "Simple terminal UI for Git operations."
+script = "app-install.sh"
+args = ["lazygit"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Delta"
+description = "Syntax-highlighting pager for Git and diff output."
+script = "app-install.sh"
+args = ["delta"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Docker"
+description = "Container engine. Linux: official get.docker.com script (asks before running). Windows: Docker Desktop."
+script = "app-install.ps1"
+args = ["Docker.DockerDesktop", "docker-desktop"]
+task_list = "WG R"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Ripgrep"
+description = "Fast recursive search tool (rg). Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["BurntSushi.ripgrep.MSVC", "ripgrep", "ripgrep"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "FZF"
+description = "Fuzzy finder for files, commands and history. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["junegunn.fzf", "fzf", "fzf"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "jq"
+description = "Lightweight command-line JSON processor. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["jqlang.jq", "jq", "jq"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "bat"
+description = "Cat clone with syntax highlighting and Git integration. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["sharkdp.bat", "bat", "bat"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "lazygit"
+description = "Simple terminal UI for Git operations. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["JesseDuffield.lazygit", "lazygit", "lazygit"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Delta"
+description = "Syntax-highlighting pager for Git and diff output. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["dandavison.delta", "delta", "delta"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Git"
+description = "Distributed version control system. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:git"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Neovim"
+description = "Hyperextensible Vim-based text editor. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:neovim"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Python 3"
+description = "Python interpreter and standard library. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:python@3.12"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Node.js"
+description = "JavaScript runtime (LTS on Windows). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:node"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Java (JDK)"
+description = "Java Development Kit (OpenJDK 21 / Eclipse Temurin 21 on Windows). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:openjdk@21"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Visual Studio Code"
+description = "Microsoft's code editor. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:visual-studio-code"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Zed"
+description = "Fast, collaborative code editor written in Rust. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:zed"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "GitHub CLI"
+description = "Official GitHub command line tool (gh): pull requests, issues, auth from the terminal. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:gh"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "GitLab CLI"
+description = "Official GitLab command line tool (glab): merge requests, issues and CI from the terminal. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:glab"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "GitHub Desktop"
+description = "GitHub's graphical Git client (Windows only; no official Linux build). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:github"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Docker"
+description = "Container engine. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:docker-desktop|docker"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Notepad++"
+description = "Fast source-code editor. Windows only."
+script = "app-install.ps1"
+args = ["Notepad++.Notepad++", "notepadplusplus"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "iTerm2"
+description = "Feature-rich terminal emulator. macOS only."
+script = "brew-install.sh"
+args = ["cask:iterm2"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = ".NET SDK"
+description = ".NET SDK for C#, F# and ASP.NET: build, run and test apps. Windows: .NET 10 SDK. Linux: Microsoft's official dotnet-install script, into ~/.dotnet (asks first). macOS: Homebrew."
+script = "app-install.ps1"
+args = ["Microsoft.DotNet.SDK.10", "dotnet-sdk"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = ".NET SDK"
+description = ".NET SDK for C#, F# and ASP.NET: build, run and test apps. Windows: .NET 10 SDK. Linux: Microsoft's official dotnet-install script, into ~/.dotnet (asks first). macOS: Homebrew."
+script = "dotnet-setup.sh"
+task_list = "FM"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = ".NET SDK"
+description = ".NET SDK for C#, F# and ASP.NET: build, run and test apps. Windows: .NET 10 SDK. Linux: Microsoft's official dotnet-install script, into ~/.dotnet (asks first). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:dotnet"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "JetBrains Rider"
+description = "Cross-platform .NET IDE for C#, F# and ASP.NET (free for non-commercial use). Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "app-install.ps1"
+args = ["JetBrains.Rider", "rider"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "JetBrains Rider"
+description = "Cross-platform .NET IDE for C#, F# and ASP.NET (free for non-commercial use). Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "flatpak-install.sh"
+args = ["com.jetbrains.Rider"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "JetBrains Rider"
+description = "Cross-platform .NET IDE for C#, F# and ASP.NET (free for non-commercial use). Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:rider"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Visual Studio Community"
+description = "Microsoft's full .NET IDE, free Community edition (opens the Visual Studio installer to pick workloads). Windows only."
+script = "app-install.ps1"
+args = ["Microsoft.VisualStudio.Community", "visualstudio2022community"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+[[data.entries]]
+name = "fd"
+description = "Fast, user-friendly alternative to find."
+script = "app-install.sh"
+args = ["fd"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "fd"
+description = "Fast, user-friendly alternative to find. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["sharkdp.fd", "fd", "fd"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "fd"
+description = "Fast, user-friendly alternative to find. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:fd"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "tldr"
+description = "Simplified and community-driven man pages."
+script = "app-install.sh"
+args = ["tldr"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "tldr"
+description = "Simplified and community-driven man pages. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["dbrgn.tealdeer", "tldr", "tldr"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "tldr"
+description = "Simplified and community-driven man pages. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:tldr"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "zoxide"
+description = "Smarter cd command that learns your most-used directories."
+script = "app-install.sh"
+args = ["zoxide"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "zoxide"
+description = "Smarter cd command that learns your most-used directories. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["ajeetdsouza.zoxide", "zoxide", "zoxide"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "zoxide"
+description = "Smarter cd command that learns your most-used directories. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:zoxide"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "starship"
+description = "Minimal, fast and customizable shell prompt."
+script = "app-install.sh"
+args = ["starship"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "starship"
+description = "Minimal, fast and customizable shell prompt. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["Starship.Starship", "starship", "starship"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "starship"
+description = "Minimal, fast and customizable shell prompt. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:starship"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "hyperfine"
+description = "Command-line benchmarking tool with statistical output."
+script = "app-install.sh"
+args = ["hyperfine"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "hyperfine"
+description = "Command-line benchmarking tool with statistical output. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["sharkdp.hyperfine", "hyperfine", "hyperfine"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "hyperfine"
+description = "Command-line benchmarking tool with statistical output. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:hyperfine"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "eza"
+description = "Modern ls replacement with colors, icons and Git status."
+script = "app-install.sh"
+args = ["eza"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "eza"
+description = "Modern ls replacement with colors, icons and Git status. Windows: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["eza-community.eza", "eza", "eza"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "eza"
+description = "Modern ls replacement with colors, icons and Git status. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:eza"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data]]
+name = "Browsers"
+
+[[data.entries]]
+name = "Firefox"
+description = "Mozilla Firefox web browser."
+script = "app-install.sh"
+args = ["firefox"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Firefox"
+description = "Mozilla Firefox web browser."
+script = "app-install.ps1"
+args = ["Mozilla.Firefox", "firefox", "firefox"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Chromium"
+description = "Open-source Chromium browser (Google Chrome on Windows)."
+script = "app-install.sh"
+args = ["chromium"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Chromium"
+description = "Open-source Chromium browser (Google Chrome on Windows)."
+script = "app-install.ps1"
+args = ["Google.Chrome", "googlechrome", "googlechrome"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Brave"
+description = "Privacy-focused Chromium browser."
+script = "app-install.ps1"
+args = ["Brave.Brave", "brave", "brave"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Firefox"
+description = "Mozilla Firefox web browser. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:firefox"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Chromium"
+description = "Open-source Chromium browser (Google Chrome on Windows). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:google-chrome|chromium"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Brave"
+description = "Privacy-focused Chromium browser. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:brave-browser"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Brave"
+description = "Privacy-focused Chromium browser. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["com.brave.Browser"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+[[data]]
+name = "Communication"
+
+[[data.entries]]
+name = "Discord"
+description = "Voice, video and text chat. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["com.discordapp.Discord"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Discord"
+description = "Voice, video and text chat. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["Discord.Discord", "discord"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Telegram"
+description = "Telegram Desktop messenger. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.telegram.desktop"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Telegram"
+description = "Telegram Desktop messenger. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["Telegram.TelegramDesktop", "telegram"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Discord"
+description = "Voice, video and text chat. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:discord"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Telegram"
+description = "Telegram Desktop messenger. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:telegram"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "WhatsApp"
+description = "WhatsApp messaging and calls. Windows: Microsoft Store app. macOS: Homebrew. Linux: ZapZap, an unofficial client (Meta has no Linux app)."
+script = "whatsapp-install.ps1"
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "WhatsApp"
+description = "WhatsApp messaging and calls. Windows: Microsoft Store app. macOS: Homebrew. Linux: ZapZap, an unofficial client (Meta has no Linux app)."
+script = "flatpak-install.sh"
+args = ["com.rtosta.zapzap"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "WhatsApp"
+description = "WhatsApp messaging and calls. Windows: Microsoft Store app. macOS: Homebrew. Linux: ZapZap, an unofficial client (Meta has no Linux app)."
+script = "brew-install.sh"
+args = ["cask:whatsapp"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+[[data]]
+name = "Open Source Apps"
+
+[[data.entries]]
+name = "LibreOffice"
+description = "Full office suite: documents, spreadsheets, presentations."
+script = "app-install.sh"
+args = ["libreoffice"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "LibreOffice"
+description = "Full office suite: documents, spreadsheets, presentations."
+script = "app-install.ps1"
+args = ["TheDocumentFoundation.LibreOffice", "libreoffice-fresh"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "GIMP"
+description = "Advanced image editor (Photoshop alternative)."
+script = "app-install.sh"
+args = ["gimp"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "GIMP"
+description = "Advanced image editor (Photoshop alternative)."
+script = "app-install.ps1"
+args = ["GIMP.GIMP.3", "gimp"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Inkscape"
+description = "Vector graphics editor."
+script = "app-install.sh"
+args = ["inkscape"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Inkscape"
+description = "Vector graphics editor."
+script = "app-install.ps1"
+args = ["Inkscape.Inkscape", "inkscape"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Blender"
+description = "3D modeling, animation and rendering suite."
+script = "app-install.sh"
+args = ["blender"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Blender"
+description = "3D modeling, animation and rendering suite."
+script = "app-install.ps1"
+args = ["BlenderFoundation.Blender", "blender"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Krita"
+description = "Digital painting and illustration."
+script = "app-install.sh"
+args = ["krita"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Krita"
+description = "Digital painting and illustration."
+script = "app-install.ps1"
+args = ["KDE.Krita", "krita"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "OBS Studio"
+description = "Screen recording and live streaming. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["com.obsproject.Studio"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "OBS Studio"
+description = "Screen recording and live streaming. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["OBSProject.OBSStudio", "obs-studio"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Audacity"
+description = "Audio recorder and editor. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.audacityteam.Audacity"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Audacity"
+description = "Audio recorder and editor. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["Audacity.Audacity", "audacity"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Kdenlive"
+description = "Non-linear video editor. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.kde.kdenlive"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Kdenlive"
+description = "Non-linear video editor. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["KDE.Kdenlive", "kdenlive"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "HandBrake"
+description = "Video transcoder. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["fr.handbrake.ghb"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "HandBrake"
+description = "Video transcoder. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["HandBrake.HandBrake", "handbrake"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Thunderbird"
+description = "Email, calendar and contacts client. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.mozilla.Thunderbird"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Thunderbird"
+description = "Email, calendar and contacts client. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["Mozilla.Thunderbird", "thunderbird"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "KeePassXC"
+description = "Offline password manager. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.keepassxc.KeePassXC"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "KeePassXC"
+description = "Offline password manager. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["KeePassXCTeam.KeePassXC", "keepassxc"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "qBittorrent"
+description = "BitTorrent client without ads. Linux: Flatpak from Flathub."
+script = "flatpak-install.sh"
+args = ["org.qbittorrent.qBittorrent"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "qBittorrent"
+description = "BitTorrent client without ads. Linux: Flatpak from Flathub."
+script = "app-install.ps1"
+args = ["qBittorrent.qBittorrent", "qbittorrent"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "PhotoCraft"
+description = "Open-source Photoshop-style image editor written in Rust (layers, masks, real PSD files). EARLY ALPHA. Installs the official GitHub release after verifying its SHA-256 checksum. Linux: AppImage in ~/.local, no root."
+script = "photocraft-install.sh"
+task_list = "FM"
+multi_select = false
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "PhotoCraft"
+description = "Open-source Photoshop-style image editor written in Rust (layers, masks, real PSD files). EARLY ALPHA. Installs the official GitHub MSI after verifying its SHA-256 checksum (not in winget yet)."
+script = "photocraft-install.ps1"
+task_list = "A FM"
+multi_select = false
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "LibreOffice"
+description = "Full office suite: documents, spreadsheets, presentations. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:libreoffice"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "GIMP"
+description = "Advanced image editor (Photoshop alternative). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:gimp"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Inkscape"
+description = "Vector graphics editor. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:inkscape"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Blender"
+description = "3D modeling, animation and rendering suite. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:blender"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Krita"
+description = "Digital painting and illustration. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:krita"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "OBS Studio"
+description = "Screen recording and live streaming. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:obs"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Audacity"
+description = "Audio recorder and editor. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:audacity"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Kdenlive"
+description = "Non-linear video editor. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:kdenlive"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "HandBrake"
+description = "Video transcoder. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:handbrake-app|handbrake"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Thunderbird"
+description = "Email, calendar and contacts client. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:thunderbird"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "KeePassXC"
+description = "Offline password manager. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:keepassxc"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "qBittorrent"
+description = "BitTorrent client without ads. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:qbittorrent"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+[[data]]
+name = "Utilities"
+
+[[data.entries]]
+name = "curl"
+description = "Command-line tool for transferring data over URLs."
+script = "app-install.sh"
+args = ["curl"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "curl"
+description = "Command-line tool for transferring data over URLs."
+script = "app-install.ps1"
+args = ["cURL.cURL", "curl", "curl"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "btop"
+description = "Resource monitor (CPU, memory, disks, network)."
+script = "app-install.sh"
+args = ["btop"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "btop"
+description = "Resource monitor (CPU, memory, disks, network)."
+script = "app-install.ps1"
+args = ["aristocratos.btop4win", "btop4win", "btop"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "7-Zip"
+description = "Archive manager with high compression."
+script = "app-install.sh"
+args = ["7zip"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "7-Zip"
+description = "Archive manager with high compression."
+script = "app-install.ps1"
+args = ["7zip.7zip", "7zip", "7zip"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "VLC"
+description = "Versatile media player."
+script = "app-install.sh"
+args = ["vlc"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "VLC"
+description = "Versatile media player."
+script = "app-install.ps1"
+args = ["VideoLAN.VLC", "vlc", "vlc"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "fastfetch"
+description = "Fast system information display."
+script = "app-install.sh"
+args = ["fastfetch"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "fastfetch"
+description = "Fast system information display."
+script = "app-install.ps1"
+args = ["Fastfetch-cli.Fastfetch", "fastfetch", "fastfetch"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "curl"
+description = "Command-line tool for transferring data over URLs. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:curl"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "btop"
+description = "Resource monitor (CPU, memory, disks, network). macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:btop"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "7-Zip"
+description = "Archive manager with high compression. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:sevenzip"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "VLC"
+description = "Versatile media player. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:vlc"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "fastfetch"
+description = "Fast system information display. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["formula:fastfetch"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Timeshift"
+description = "System restore points and backups (rsync snapshots). Linux only."
+script = "app-install.sh"
+args = ["timeshift"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "GNOME Tweaks"
+description = "Extra settings for the GNOME desktop. Linux only."
+script = "app-install.sh"
+args = ["gnome-tweaks"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Flatseal"
+description = "Manage Flatpak app permissions. Linux only."
+script = "flatpak-install.sh"
+args = ["com.github.tchx84.Flatseal"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Distrobox"
+description = "Run any distro inside a container, integrated with your desktop. Linux only."
+script = "app-install.sh"
+args = ["distrobox"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "PowerToys"
+description = "Microsoft utilities: FancyZones, PowerToys Run, keyboard remapper. Windows only."
+script = "app-install.ps1"
+args = ["Microsoft.PowerToys", "powertoys"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Everything"
+description = "Instant file search for NTFS drives. Windows only."
+script = "app-install.ps1"
+args = ["voidtools.Everything", "everything"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "WinDirStat"
+description = "See what is using your disk space. Windows only."
+script = "app-install.ps1"
+args = ["WinDirStat.WinDirStat", "windirstat"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Rectangle"
+description = "Move and resize windows with keyboard shortcuts. macOS only."
+script = "brew-install.sh"
+args = ["cask:rectangle"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Raycast"
+description = "Launcher, clipboard history and snippets. macOS only."
+script = "brew-install.sh"
+args = ["cask:raycast"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Stats"
+description = "CPU, memory, disk and network in the menu bar. macOS only."
+script = "brew-install.sh"
+args = ["cask:stats"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data]]
+name = "Gaming"
+
+[[data.entries]]
+name = "Steam"
+description = "Game store and launcher by Valve. Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "app-install.ps1"
+args = ["Valve.Steam", "steam"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Steam"
+description = "Game store and launcher by Valve. Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "flatpak-install.sh"
+args = ["com.valvesoftware.Steam"]
+task_list = "FI"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "Steam"
+description = "Game store and launcher by Valve. Windows: winget. Linux: Flatpak from Flathub. macOS: Homebrew."
+script = "brew-install.sh"
+args = ["cask:steam"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data]]
+name = "Office & Productivity"
+
+[[data.entries]]
+name = "Microsoft Word"
+description = "Microsoft's word processor, installed as part of Microsoft 365 (with Excel, PowerPoint and Outlook). Needs a Microsoft 365 license to sign in. Windows: winget Microsoft.Office. macOS: Homebrew (Word only). Linux: no native app; use LibreOffice Writer or Word on the web."
+script = "app-install.ps1"
+args = ["Microsoft.Office"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Microsoft Word"
+description = "Microsoft's word processor, installed as part of Microsoft 365 (with Excel, PowerPoint and Outlook). Needs a Microsoft 365 license to sign in. Windows: winget Microsoft.Office. macOS: Homebrew (Word only). Linux: no native app; use LibreOffice Writer or Word on the web."
+script = "brew-install.sh"
+args = ["cask:microsoft-word"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Microsoft Word 2013"
+description = "Installs Word 2013 (Office 2013) from your own setup.exe or ISO, which you pick in a file dialog. You need your own product key; Microsoft ended support in April 2023 and no longer sells it. Windows only."
+script = "office2013-install.ps1"
+task_list = "FM"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]

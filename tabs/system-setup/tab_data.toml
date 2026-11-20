@@ -1,0 +1,139 @@
+name = "System Setup"
+
+[[data]]
+name = "System Update"
+description = "Upgrade all installed packages with the detected package manager."
+script = "system-update.sh"
+task_list = "P MP"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "System Update"
+description = "Upgrade all installed packages with winget (or Chocolatey / Scoop)."
+script = "system-update.ps1"
+task_list = "WG"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "Update xutil"
+description = "Refresh the installed xutil from the downloaded source folder (set XUTIL_SOURCE_DIR to override)."
+script = "xutil-self-update.sh"
+task_list = "I"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "Update xutil"
+description = "Refresh the installed xutil from the downloaded source folder. macOS."
+script = "xutil-self-update.sh"
+task_list = "I"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data]]
+name = "Update xutil"
+description = "Refresh the installed xutil from the downloaded source folder. Windows."
+script = "xutil-self-update.ps1"
+task_list = "I"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "System Cleanup"
+description = "Clean package caches, remove unused packages and vacuum old journal logs (asks first)."
+script = "system-cleanup.sh"
+task_list = "P MP RP FM"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "System Cleanup"
+description = "Delete temp files and empty the Recycle Bin (asks first)."
+script = "system-cleanup.ps1"
+task_list = "FM"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data]]
+name = "Build Essentials"
+description = "Compiler toolchain and make for building software."
+script = "build-essentials.sh"
+task_list = "I MP"
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
+name = "Windows Maintenance"
+
+[[data.entries]]
+name = "Create Restore Point"
+description = "Create a System Restore point before making changes."
+script = "restore-point.ps1"
+task_list = "A"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Repair Windows (DISM + SFC)"
+description = "Repair the component store, then scan and fix protected system files. Can take a while."
+script = "repair-system.ps1"
+task_list = "A"
+multi_select = false
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Enable WSL"
+description = "Install Windows Subsystem for Linux with the default distribution."
+script = "enable-wsl.ps1"
+task_list = "A WF R"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Explorer Tweaks"
+description = "Show file extensions and hidden files. Previous values are backed up to ~/xutil-backup."
+script = "explorer-tweaks.ps1"
+task_list = "REG FM"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
