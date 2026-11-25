@@ -4,6 +4,10 @@ All notable changes to X Utility are documented here. The format is based on Kee
 
 ## [Unreleased]
 
+- Nothing yet.
+
+## [0.1.0] - 2026-11-25
+
 ### Added
 
 - Cross-platform terminal catalog and graphical window.
