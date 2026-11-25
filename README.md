@@ -2,6 +2,12 @@
 
 A cross-platform setup tool: a TOML catalog of scripts, filtered by preconditions for your system, browsed in a terminal UI or window, confirmed, then executed.
 
+## Screenshots
+
+| Main window | Task details |
+|:---:|:---:|
+| ![xutil main window](docs/screenshots/gui.png) | ![xutil task details](docs/screenshots/detail.png) |
+
 ## Run
 Needs Python 3.11+.
 ```
