@@ -9,7 +9,8 @@ A cross-platform setup tool: a TOML catalog of scripts, filtered by precondition
 | ![xutil main window](docs/screenshots/gui.png) | ![xutil task details](docs/screenshots/detail.png) |
 
 ## Website (xuity)
-`web/` is a small Flask site for uploading, browsing and downloading software. See [web/README.md](web/README.md) to run it.
+- `web/` is a small Flask site for uploading, browsing and downloading software. See [web/README.md](web/README.md) to run it.
+- `windows/` is a static Windows software download page with links to official installers. See [windows/README.md](windows/README.md).
 
 ## Run
 Needs Python 3.11+.
