@@ -95,7 +95,7 @@ Exec=$BIN --gui
 Icon=$ICON
 Terminal=false
 Categories=System;Settings;Utility;
-Keywords=install;setup;apps;linutil;
+Keywords=install;setup;apps;
 StartupWMClass=xutil
 ENTRY
     command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database "$PREFIX/share/applications" 2>/dev/null || true

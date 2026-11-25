@@ -1,6 +1,6 @@
-# xutil: linutil for Windows + Linux (+ macOS)
+# xutil: apps and system setup for Windows, Linux and macOS
 
-A port of [ChrisTitusTech/linutil](https://github.com/ChrisTitusTech/linutil) based on its actual source: a TOML catalog of scripts, filtered by preconditions for your system, browsed in a terminal UI, confirmed, then executed. See **ANALYSIS.md** for the full breakdown.
+A cross-platform setup tool: a TOML catalog of scripts, filtered by preconditions for your system, browsed in a terminal UI or window, confirmed, then executed.
 
 ## Run
 Needs Python 3.11+.

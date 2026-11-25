@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""xutil - a cross-platform port of ChrisTitusTech/linutil (Windows, Linux, macOS).
+"""xutil - cross-platform apps and system setup (Windows, Linux, macOS).
 
-Same architecture as linutil, in one stdlib-only file:
+A stdlib-only implementation:
   core : tabs.toml + tab_data.toml catalog, preconditions, interpreter resolution, config
   tui  : tabs, folders, search, preview, multi-select, confirmation, execution
 Needs Python 3.11+ (tomllib); the window also needs tkinter.
@@ -29,7 +29,7 @@ EMBEDDED = None  # filled in by build-onefile.py: base64(zlib(json({relative pat
 
 
 def extract_embedded():
-    """Unpack the embedded tabs/ tree to a temp dir (like linutil's include_dir! extraction)."""
+    """Unpack the embedded tabs/ tree to a temp dir."""
     import atexit
     import base64
     import json
@@ -108,7 +108,7 @@ def precondition_ok(p):
         return all(which(v) == matches for v in values)
     if data == "file_exists":
         return all(Path(os.path.expandvars(v)).is_file() == matches for v in values)
-    if data == "os":  # extension over linutil: platform filter
+    if data == "os":  # platform filter
         return (OS_NAME in values) == matches
     if isinstance(data, dict) and "environment" in data:
         v = os.environ.get(data["environment"])
@@ -136,7 +136,7 @@ def supported(entry):
 
 
 def resolve_script(path: Path):
-    """Interpreter lookup (linutil: shebang). Returns argv prefix or None if unavailable."""
+    """Interpreter lookup from the shebang. Returns argv prefix or None if unavailable."""
     ext = path.suffix.lower()
     if ext == ".ps1":
         ps = shutil.which("pwsh") or shutil.which("powershell")
@@ -186,7 +186,7 @@ def build_dir(entries, tab_dir, validate, parent_multi=True):
                 raise SystemExit(f"Script {path} does not exist")
             prefix = resolve_script(path)
             if prefix is None and validate:
-                continue  # interpreter unavailable -> hidden, like linutil
+                continue  # interpreter unavailable -> hidden
             argv = (prefix + [str(a) for a in e.get("args", [])]) if prefix else None
             node = Node(e["name"], e.get("description", ""), "script", multi, e.get("task_list", ""), argv, path, path.parent)
             node.os_tags, node.usable = os_tags_of(e) or None, supported(e) and prefix is not None
@@ -235,7 +235,7 @@ def read_config(path, tabs):
     for n in cfg.get("auto_execute", []):
         node = find_by_name(tabs, n)
         (nodes if node else missing).append(node or n)
-    for m in missing:  # SPEC.md lists this as a desired improvement over linutil
+    for m in missing:  # report names that are not available on this system
         print(f"! '{m}' not found or unsupported on this system; skipped")
     return nodes, bool(cfg.get("skip_confirmation")), bool(cfg.get("size_bypass"))
 
@@ -1899,7 +1899,7 @@ def install_self(system=False, remove=False):
             P["desktop"].parent.mkdir(parents=True, exist_ok=True)
             P["desktop"].write_text("[Desktop Entry]\nType=Application\nName=xutil\nComment=Install apps and set up your system\n"
                                     f"Exec={launcher} --gui\nIcon={P['icon']}\nTerminal=false\nCategories=System;Settings;Utility;\n"
-                                    "Keywords=install;setup;apps;linutil;\nStartupWMClass=xutil\n")
+                                    "Keywords=install;setup;apps;\nStartupWMClass=xutil\n")
             if shutil.which("update-desktop-database"):
                 subprocess.run(["update-desktop-database", str(P["desktop"].parent)], check=False, stderr=subprocess.DEVNULL)
             print(f"App menu entry: {P['desktop']}")
@@ -1934,7 +1934,7 @@ def check_catalog(tabs_dir):
 
 
 def main():
-    ap = argparse.ArgumentParser(prog="xutil", description="Cross-platform port of linutil for Windows, Linux and macOS.")
+    ap = argparse.ArgumentParser(prog="xutil", description="Cross-platform apps and system setup for Windows, Linux and macOS.")
     ap.add_argument("-c", "--config", help="config file (TOML or JSON): auto_execute, skip_confirmation, size_bypass")
     ap.add_argument("-t", "--theme", choices=["default", "compatible"], default="default")
     ap.add_argument("-y", "--skip-confirmation", action="store_true")
