@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}xuity{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <h1>Share software, simply.</h1>
+  <p>Upload installers, archives and tools. Everyone can browse and download them.</p>
+</section>
+
+<section class="panel">
+  <h2>Upload a file <small>up to {{ max_mb }} MB</small></h2>
+  <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="upload">
+    <label class="drop">
+      <input type="file" name="file" required>
+      <span>Choose a file…</span>
+    </label>
+    <input type="text" name="description" placeholder="Short description (optional)" maxlength="500">
+    <button type="submit">Upload</button>
+  </form>
+</section>
+
+<section class="panel">
+  <div class="heading">
+    <h2>Catalog <small>{{ total }} files · {{ bytes_total | human_size }}</small></h2>
+    <form method="get" class="search">
+      <input type="search" name="q" value="{{ query }}" placeholder="Search files…">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  {% if files %}
+    <ul class="files">
+      {% for f in files %}
+        <li>
+          <div class="file-icon">{{ f['filename'].rsplit('.', 1)[-1][:4] | upper if '.' in f['filename'] else 'FILE' }}</div>
+          <div class="file-info">
+            <strong>{{ f['filename'] }}</strong>
+            <span>{{ f['description'] or 'No description' }}</span>
+            <small>{{ f['uploaded_at'] | int | date }} · {{ f['size'] | human_size }}</small>
+          </div>
+          <div class="actions">
+            <a class="btn" href="{{ url_for('download', file_id=f['id']) }}">Download</a>
+            {% if admin %}
+              <form method="post" action="{{ url_for('delete', file_id=f['id']) }}" class="delete">
+                <input type="password" name="password" placeholder="admin password" required>
+                <button type="submit" class="danger">Delete</button>
+              </form>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty">{% if query %}Nothing matches “{{ query }}”.{% else %}No files yet. Upload the first one above.{% endif %}</p>
+  {% endif %}
+</section>
+
+{% endblock %}
