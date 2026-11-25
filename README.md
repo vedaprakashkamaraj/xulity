@@ -2,6 +2,8 @@
 
 A cross-platform setup tool: a TOML catalog of scripts, filtered by preconditions for your system, browsed in a terminal UI or window, confirmed, then executed.
 
+**Official website:** [X Utility](site/README.md) — a Next.js site in `site/` with release-aware downloads, features, docs and project information.
+
 ## Screenshots
 
 | Main window | Task details |
