@@ -19,6 +19,8 @@ mapName() {
         7zip:dnf | 7zip:zypper | 7zip:apk) echo p7zip ;;
         7zip:pacman) echo 7zip ;;
         7zip:brew) echo sevenzip ;;
+        fd:pacman) echo fd ;;
+        shellcheck:apt-get|shellcheck:dnf|shellcheck:pacman|shellcheck:zypper|shellcheck:apk|shellcheck:brew) echo shellcheck ;;
         *) echo "$1" ;;
     esac
 }

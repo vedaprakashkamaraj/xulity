@@ -802,7 +802,7 @@ def run_gui(tabs, args):
         hov = mix(base, "#ffffff", 0.14)
         fg = C("bg") if primary else C("fg")
         b = tk.Label(parent, text=text, image=img, compound="left" if img else "none", font=F["bold"], bg=base, fg=fg,
-                     padx=18, pady=9, cursor="hand2", highlightthickness=0 if primary else 1,
+                     padx=18, pady=9, cursor="", highlightthickness=0 if primary else 1,
                      highlightbackground=C("border"), highlightcolor=C("border"))
         b.on, b.base, b.hov = True, base, hov
         b.off = C("border") if primary else C("surface")
@@ -821,7 +821,7 @@ def run_gui(tabs, args):
     def enable(b, flag, primary=True):
         b.on = flag
         b.configure(bg=b.base if flag else b.off, fg=(C("bg") if primary else C("fg")) if flag else C("dim"),
-                    cursor="hand2" if flag else "arrow")
+                    cursor="")
 
     def walk(w):
         yield w
@@ -1005,18 +1005,26 @@ def run_gui(tabs, args):
             names = ", ".join(n.name for n in list(sel.values())[:4]) + (" …" if n_sel > 4 else "")
             W["status"].configure(text=names, fg=C("fg"))
         elif f is not None and not f.usable:
-            W["run"].configure(text="Not available here")
+            W["run"].configure(text="Not available")
             enable(W["run"], False)
             W["status"].configure(text=getattr(f, "why", "Not available on this system"), fg=C("warn"))
         elif f is not None:
             W["run"].configure(text=f"Run {f.name}")
             enable(W["run"], True)
-            W["status"].configure(text="Space selects several, Enter runs the highlighted one", fg=C("dim"))
+            W["status"].configure(text="Space select · Enter run · / search · T theme", fg=C("dim"))
         else:
             W["run"].configure(text="Run")
             enable(W["run"], False)
-            W["status"].configure(text="Nothing selected", fg=C("dim"))
+            W["status"].configure(text="Select an item to get started", fg=C("dim"))
         enable(W["clear"], bool(n_sel), primary=False)
+        if "count" in W and W["count"].winfo_exists():
+            total = sum(len(s[2]) for s in sections())
+            ready = sum(1 for s in sections() for n in s[2] if n.usable)
+            searching = bool(query.get().strip())
+            summary = f"{ready}/{total} ready on this computer" if not searching else f"Enter runs · Space selects · Esc clears"
+            if n_sel:
+                summary += f" · {n_sel} selected"
+            W["count"].configure(text=summary)
 
     def run_primary():
         if sel:
@@ -1096,7 +1104,7 @@ def run_gui(tabs, args):
             open_log([node])
 
         def option(title, sub, system, enabled=True, note=""):
-            r = tk.Frame(body, bg=C("surface"), padx=14, pady=12, cursor="hand2" if enabled else "arrow")
+            r = tk.Frame(body, bg=C("surface"), padx=14, pady=12, cursor="")
             r.pack(fill="x", pady=4)
             tk.Label(r, image=icon("download" if not system else "shield", 32), bg=C("surface")).pack(side="left", padx=(0, 14))
             col = tk.Frame(r, bg=C("surface"))
@@ -1180,7 +1188,7 @@ def run_gui(tabs, args):
         dh = tk.Frame(main, bg=C("bg"))
         dh.pack(fill="x", padx=28)
         tk.Label(dh, text="DETAILS", font=F["tiny"], bg=C("bg"), fg=C("dim")).pack(side="left")
-        tog = tk.Label(dh, text="hide", font=F["tiny"], bg=C("bg"), fg=C("accent"), cursor="hand2")
+        tog = tk.Label(dh, text="hide", font=F["tiny"], bg=C("bg"), fg=C("accent"), cursor="")
         tog.pack(side="right")
         bottom = tk.Frame(main, bg=C("surface"), padx=10, pady=10)
         bottom.pack(side="bottom", fill="x")
@@ -1401,11 +1409,11 @@ def run_gui(tabs, args):
 
     # ───────────── cards ─────────────
     def make_card(parent, n):
-        card = tk.Frame(parent, bg=C("surface"), highlightthickness=1, highlightbackground=C("border"), highlightcolor=C("border"), cursor="hand2" if n.usable else "arrow")
+        card = tk.Frame(parent, bg=C("surface"), highlightthickness=1, highlightbackground=C("border"), highlightcolor=C("border"), cursor="")
         t = tile(card, icon_key(n), 54, 32, C("surface"))
         t.is_tile = True
         t.pack(side="left", padx=(14, 12), pady=14, anchor="n")
-        card.check = tk.Canvas(card, width=20, height=20, bg=C("surface"), highlightthickness=0, bd=0, cursor="hand2")
+        card.check = tk.Canvas(card, width=20, height=20, bg=C("surface"), highlightthickness=0, bd=0, cursor="")
         card.check.is_check = True
         if n.multi:
             card.check.pack(side="right", padx=(0, 14), pady=16, anchor="n")
@@ -1502,10 +1510,15 @@ def run_gui(tabs, args):
         total = sum(len(s[2]) for s in secs)
         cur = tabs[S["tab"]]
         ready = sum(1 for s_ in secs for n_ in s_[2] if n_.usable)
-        W["title"].configure(text="Search" if query.get().strip() else getattr(cur, "title", cur.name))
+        searching = bool(query.get().strip())
+        W["title"].configure(text="Search" if searching else getattr(cur, "title", cur.name))
         blurb = getattr(cur, "blurb", "")
-        W["sub"].configure(text=f"{total} {'result' if total == 1 else 'results'}" if query.get().strip()
-                           else (f"{total} apps · {ready} ready on this computer\n{blurb}" if blurb else f"{total} tasks for {PLAT_LABEL.get(OS_NAME, OS_NAME)}"))
+        W["sub"].configure(text=(f"{total} {'result' if total == 1 else 'results'} for “{query.get().strip()}”" if searching
+                                 else (blurb or f"Tools for {PLAT_LABEL.get(OS_NAME, OS_NAME)}")))
+        summary = f"{ready}/{total} ready on this computer" if not searching else f"Enter runs · Space selects · Esc clears"
+        if sel:
+            summary += f" · {len(sel)} selected"
+        W["count"].configure(text=summary)
 
     def pick_tab(i):
         S["tab"] = i % len(tabs)
@@ -1526,7 +1539,7 @@ def run_gui(tabs, args):
                 tk.Label(W["tabs"], text=g, font=F["tiny"], bg=C("side"), fg=C("dim"), anchor="w").pack(fill="x", padx=20, pady=(14 if i else 4, 4))
             active = i == S["tab"] and not searching
             bg = C("surface") if active else C("side")
-            row = tk.Frame(W["tabs"], bg=bg, cursor="hand2")
+            row = tk.Frame(W["tabs"], bg=bg, cursor="")
             row.pack(fill="x", pady=1)
             tk.Frame(row, bg=C("accent") if active else bg, width=3).pack(side="left", fill="y")
             ik = getattr(tab, "icon", None) or ICON_FOR.get(tab.name.lower(), "box")
@@ -1578,7 +1591,7 @@ def run_gui(tabs, args):
         if WINDOWS and not admin:
             button(foot, "Relaunch as Admin", relaunch_admin, img=icon("shield", 22)).pack(fill="x", pady=(0, 10))
         button(foot, "Install xutil", install_dialog, img=icon("download", 22)).pack(fill="x", pady=(0, 10))
-        tb = tk.Frame(foot, bg=C("surface"), cursor="hand2")
+        tb = tk.Frame(foot, bg=C("surface"), cursor="")
         tb.pack(fill="x")
         tk.Label(tb, image=icon("palette", 22), bg=C("surface")).pack(side="left", padx=(10, 8), pady=9)
         tk.Label(tb, text=S["theme"], font=F["small"], bg=C("surface"), fg=C("fg")).pack(side="left")
@@ -1602,13 +1615,27 @@ def run_gui(tabs, args):
         W["title"].pack(anchor="w")
         W["sub"] = tk.Label(tl, text="", font=F["small"], bg=C("bg"), fg=C("dim"), justify="left", anchor="w")
         W["sub"].pack(anchor="w")
+        W["count"] = tk.Label(tl, text="", font=F["tiny"], bg=C("bg"), fg=C("dim"), anchor="w")
+        W["count"].pack(anchor="w", pady=(4, 0))
         sbox = tk.Frame(top, bg=C("surface"), highlightthickness=1, highlightbackground=C("border"), highlightcolor=C("accent"))
         sbox.pack(side="right")
         tk.Label(sbox, image=icon("search", 22), bg=C("surface")).pack(side="left", padx=(12, 6))
         ent = tk.Entry(sbox, textvariable=query, width=30, font=F["body"], bg=C("surface"), fg=C("fg"), insertbackground=C("accent"), relief="flat", highlightthickness=0)
         ent.pack(side="left", ipady=8, padx=(0, 6))
-        tk.Label(sbox, text="/", font=F["tiny"], bg=C("surface2"), fg=C("dim"), padx=6).pack(side="right", padx=8)
-        W["search"] = ent
+        hint = tk.Label(sbox, text="/", font=F["tiny"], bg=C("surface2"), fg=C("dim"), padx=6, cursor="")
+        hint.pack(side="right", padx=8)
+        W["search"], W["search_hint"] = ent, hint
+
+        def sync_search(*_):
+            has = bool(query.get().strip())
+            hint.configure(text="✕" if has else "/", fg=C("fg") if has else C("dim"))
+            if "canvas" in W:
+                build_tabs()
+                populate()
+        hint.bind("<Button-1>", lambda e: (query.set(""), ent.focus_set()))
+        query.trace_add("write", sync_search)
+        sync_search()
+
         ent.bind("<Down>", lambda e: (root.focus_set(), move(0, 1) if S["focus"] else None, "break")[2])
         ent.bind("<Return>", lambda e: (root.focus_set(), set_focus(visible[0]) if visible else None))
         ent.bind("<Escape>", lambda e: (query.set(""), root.focus_set()))
@@ -1642,7 +1669,7 @@ def run_gui(tabs, args):
         W["clear"] = button(inner_bar, "Clear", clear_sel)
         W["clear"].pack(side="right", padx=8)
         dc = tk.Checkbutton(inner_bar, text="Dry run", variable=dry, font=F["small"], bg=C("surface"), fg=C("fg"), selectcolor=C("bg"),
-                            activebackground=C("surface"), activeforeground=C("fg"), highlightthickness=0, bd=0, cursor="hand2")
+                            activebackground=C("surface"), activeforeground=C("fg"), highlightthickness=0, bd=0, cursor="")
         dc.pack(side="right", padx=14)
         W["status"] = tk.Label(inner_bar, text="", font=F["small"], bg=C("surface"), fg=C("dim"), anchor="w")
         W["status"].pack(side="left", fill="x", expand=True)
@@ -1698,7 +1725,6 @@ def run_gui(tabs, args):
     root.bind_all("<MouseWheel>", on_wheel)
     root.bind_all("<Button-4>", on_wheel)
     root.bind_all("<Button-5>", on_wheel)
-    query.trace_add("write", lambda *_: ("canvas" in W) and (build_tabs(), populate()))
 
     build()
     root._x = dict(sel=sel, go=go, S=S, W=W, cards=cards, visible=visible, pick_tab=pick_tab, cycle_theme=cycle_theme,
@@ -1954,6 +1980,17 @@ def main():
             return run_gui(gui_tabs(load_tabs(tabs_dir, validate=False), tabs), args)
         except ImportError:
             sys.exit("The window needs tkinter.\n  Fedora: sudo dnf install python3-tkinter\n  Debian/Ubuntu: sudo apt install python3-tk\n  Arch: sudo pacman -S tk\n  Windows: reinstall Python and keep 'tcl/tk' ticked")
+    if args.list:
+        return tree(tabs)
+
+    skip, size_bypass = args.skip_confirmation, args.size_bypass
+    if args.config:
+        nodes, cfg_skip, cfg_size = read_config(args.config, tabs)
+        skip, size_bypass = skip or cfg_skip, size_bypass or cfg_size
+        if nodes:
+            enable_ansi()
+            ok = confirm_and_run(nodes, skip, args.dry_run)
+            sys.exit(0 if ok else 1)
     if not sys.stdin.isatty():
         sys.exit("xutil's menu needs an interactive terminal. Use --gui for the window, or --list, --check, --config for non-interactive use.")
     if not WINDOWS and is_admin() and not args.bypass_root:

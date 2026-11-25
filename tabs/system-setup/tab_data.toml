@@ -91,6 +91,18 @@ data = "os"
 values = ["linux"]
 
 [[data]]
+name = "Printer Drivers & CUPS"
+description = "Install CUPS printing service and common printer drivers (HP/hplip, Gutenprint, Foomatic/OpenPrinting). Linux only; asks before installing."
+script = "printers-setup.sh"
+task_list = "I MP SS"
+multi_select = false
+
+[[data.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data]]
 name = "Windows Maintenance"
 
 [[data.entries]]

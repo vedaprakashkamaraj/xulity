@@ -1642,6 +1642,162 @@ data = "os"
 values = ["windows"]
 
 [[data.entries]]
+name = "xdotool"
+description = "Simulate keyboard/mouse input and move, resize, or focus X11 windows from the command line. Linux only."
+script = "app-install.sh"
+args = ["xdotool"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "wmctrl"
+description = "Interact with X11/EWMH window managers: list, move, resize, activate windows. Linux only."
+script = "app-install.sh"
+args = ["wmctrl"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "htop"
+description = "Interactive process viewer and system monitor. Linux only."
+script = "app-install.sh"
+args = ["htop"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "tmux"
+description = "Terminal multiplexer for multiple panes/sessions in one terminal. Linux only."
+script = "app-install.sh"
+args = ["tmux"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "ncdu"
+description = "NCurses disk usage analyzer for finding space hogs. Linux only."
+script = "app-install.sh"
+args = ["ncdu"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "tree"
+description = "Display directory contents in a tree view. Linux only."
+script = "app-install.sh"
+args = ["tree"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "wget"
+description = "Non-interactive network downloader. Linux only."
+script = "app-install.sh"
+args = ["wget"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "unzip"
+description = "Extract .zip archives from the command line. Linux only."
+script = "app-install.sh"
+args = ["unzip"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "zip"
+description = "Create .zip archives from the command line. Linux only."
+script = "app-install.sh"
+args = ["zip"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "rsync"
+description = "Fast incremental file transfer and sync tool. Linux only."
+script = "app-install.sh"
+args = ["rsync"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "ShellCheck"
+description = "Static analysis tool for shell scripts. Linux only."
+script = "app-install.sh"
+args = ["shellcheck"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "nvtop"
+description = "GPU process monitor for NVIDIA, AMD, and Intel GPUs. Linux."
+script = "app-install.sh"
+args = ["nvtop"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
+name = "NVIDIA Settings"
+description = "NVIDIA GPU configuration tool (for proprietary NVIDIA drivers). Linux only."
+script = "app-install.sh"
+args = ["nvidia-settings"]
+task_list = "I MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["linux"]
+
+[[data.entries]]
 name = "fastfetch"
 description = "Fast system information display."
 script = "app-install.sh"
@@ -1810,6 +1966,78 @@ data = "os"
 values = ["windows"]
 
 [[data.entries]]
+name = "PowerShell 7"
+description = "Modern cross-platform PowerShell shell and scripting language. Windows 11: winget / Chocolatey / Scoop."
+script = "app-install.ps1"
+args = ["Microsoft.PowerShell", "powershell-core", "pwsh"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "UniGetUI"
+description = "Graphical package manager for winget, Chocolatey, Scoop, pip, npm and more. Windows 11 only."
+script = "app-install.ps1"
+args = ["MartiCliment.UniGetUI", "wingetui"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "Files"
+description = "Modern tabbed file manager alternative for Windows 11."
+script = "app-install.ps1"
+args = ["YairAichenbaum.Files", "files"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "ShareX"
+description = "Screenshot, screen recording, and file sharing tool with powerful workflows. Windows only."
+script = "app-install.ps1"
+args = ["ShareX.ShareX", "sharex"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "QuickLook"
+description = "Press Space to preview files in File Explorer, macOS-style. Windows 11 only."
+script = "app-install.ps1"
+args = ["QL-Win.QuickLook", "quicklook"]
+task_list = "WG"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
+name = "NVIDIA GeForce Experience"
+description = "NVIDIA driver updates, game optimization, and ShadowPlay recording. Windows only."
+script = "app-install.ps1"
+args = ["Nvidia.GeForceExperience", "geforce-experience"]
+task_list = "WG R"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["windows"]
+
+[[data.entries]]
 name = "Rectangle"
 description = "Move and resize windows with keyboard shortcuts. macOS only."
 script = "brew-install.sh"
@@ -1838,6 +2066,90 @@ name = "Stats"
 description = "CPU, memory, disk and network in the menu bar. macOS only."
 script = "brew-install.sh"
 args = ["cask:stats"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "iTerm2"
+description = "Powerful terminal emulator for macOS with split panes, search, and profiles."
+script = "brew-install.sh"
+args = ["cask:iterm2"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "Alfred"
+description = "Productivity app for macOS: launcher, clipboard history, workflows, and snippets."
+script = "brew-install.sh"
+args = ["cask:alfred"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "AltTab"
+description = "Windows-style Alt-Tab window switcher for macOS."
+script = "brew-install.sh"
+args = ["cask:alt-tab"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "AppCleaner"
+description = "Small utility to thoroughly uninstall apps and their leftover files on macOS."
+script = "brew-install.sh"
+args = ["cask:appcleaner"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "The Unarchiver"
+description = "Archive extraction utility for macOS supporting many formats."
+script = "brew-install.sh"
+args = ["cask:the-unarchiver"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "IINA"
+description = "Modern media player for macOS built on mpv."
+script = "brew-install.sh"
+args = ["cask:iina"]
+task_list = "MP"
+
+[[data.entries.preconditions]]
+matches = true
+data = "os"
+values = ["darwin"]
+
+[[data.entries]]
+name = "MonitorControl"
+description = "Control external display brightness and volume from macOS."
+script = "brew-install.sh"
+args = ["cask:monitorcontrol"]
 task_list = "MP"
 
 [[data.entries.preconditions]]
